@@ -23,6 +23,7 @@ class AnswerBuilderTest {
     Answer answer =
         answerBuilder
             .setUpvotes(100)
+            .setQuestion("Foo?")
             .setBestAnswer(true)
             .setUrl(mockUrl)
             .setDate(mockDate)
@@ -31,6 +32,7 @@ class AnswerBuilderTest {
             .build();
 
     assertThat(answer.isBestAnswer()).isTrue();
+    assertThat(answer.getQuestion()).isEqualTo("Foo?");
     assertThat(answer.getUpvotes()).isEqualTo(100);
     assertThat(answer.getUrl()).isEqualTo(mockUrl);
     assertThat(answer.getDate()).isEqualTo(mockDate);
