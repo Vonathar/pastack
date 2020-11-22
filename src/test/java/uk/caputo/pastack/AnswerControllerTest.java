@@ -23,7 +23,7 @@ public class AnswerControllerTest {
   @Test
   public void getAnswers_QuestionSpecified_ShouldReturnAnswersJson() throws Exception {
     this.mvc
-        .perform(get("/answers?question=test+question"))
+        .perform(get("/answers?query=test+question"))
         .andExpect(status().isOk())
         .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE));
   }
