@@ -16,7 +16,7 @@ class AnswerBuilderTest {
   @Autowired AnswerBuilder answerBuilder;
 
   @Test
-  public void build_BuilderFieldsPopulated_ShouldReturnBuildValidAnswerObject()
+  public void build_BuilderFieldsPopulated_ShouldBuildValidAnswerObject()
       throws MalformedURLException {
     URL mockUrl = new URL("https://www.stackoverflow.com");
     Date mockDate = new Date();
