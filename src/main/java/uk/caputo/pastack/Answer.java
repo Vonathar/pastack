@@ -10,8 +10,8 @@ import java.util.Date;
  */
 public class Answer {
 
+  private final Question question;
   private final int upvotes;
-  private final String question;
   private final boolean isBestAnswer;
   private final URL url;
   private final Date date;
@@ -19,8 +19,8 @@ public class Answer {
   private final String content;
 
   public Answer(
+      Question question,
       int upvotes,
-      String question,
       boolean isBestAnswer,
       URL url,
       Date date,
@@ -55,7 +55,7 @@ public class Answer {
     return author;
   }
 
-  public String getQuestion() {
+  public Question getQuestion() {
     return question;
   }
 

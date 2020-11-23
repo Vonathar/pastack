@@ -20,10 +20,13 @@ class AnswerBuilderTest {
       throws MalformedURLException {
     URL mockUrl = new URL("https://www.stackoverflow.com");
     Date mockDate = new Date();
+    Question mockQuestion =
+        new Question("Title", 5, new Date(), new URL("https://www.stackoverflow.com"), 5);
+
     Answer answer =
         answerBuilder
             .setUpvotes(100)
-            .setQuestion("Foo?")
+            .setQuestion(mockQuestion)
             .setBestAnswer(true)
             .setUrl(mockUrl)
             .setDate(mockDate)
@@ -32,7 +35,7 @@ class AnswerBuilderTest {
             .build();
 
     assertThat(answer.isBestAnswer()).isTrue();
-    assertThat(answer.getQuestion()).isEqualTo("Foo?");
+    assertThat(answer.getQuestion()).isNotNull();
     assertThat(answer.getUpvotes()).isEqualTo(100);
     assertThat(answer.getUrl()).isEqualTo(mockUrl);
     assertThat(answer.getDate()).isEqualTo(mockDate);

@@ -7,8 +7,8 @@ import org.springframework.stereotype.Component;
 /** A class that acts as the builder for Answer objects. */
 @Component
 public class AnswerBuilder {
+  private Question question;
   private int upvotes;
-  private String question;
   private boolean isBestAnswer;
   private URL url;
   private Date date;
@@ -45,7 +45,7 @@ public class AnswerBuilder {
     return this;
   }
 
-  public AnswerBuilder setQuestion(String question) {
+  public AnswerBuilder setQuestion(Question question) {
     this.question = question;
     return this;
   }
@@ -56,6 +56,6 @@ public class AnswerBuilder {
    * @return an immutable instance of Answer.
    */
   public Answer build() {
-    return new Answer(upvotes, question, isBestAnswer, url, date, author, content);
+    return new Answer(question, upvotes, isBestAnswer, url, date, author, content);
   }
 }
