@@ -21,9 +21,9 @@ public class AnswerControllerTest {
   @Autowired private MockMvc mvc;
 
   @Test
-  public void getAnswers_QuestionSpecified_ShouldReturnAnswersJson() throws Exception {
+  public void getAnswers_ValidQuestion_ShouldReturnAnswersJson() throws Exception {
     this.mvc
-        .perform(get("/answers?query=test+question"))
+        .perform(get("/answers?query=what+is+reflection"))
         .andExpect(status().isOk())
         .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE));
   }
