@@ -14,8 +14,8 @@ class StackExchangeTest {
 
   @Test
   void fetchQuestions_ValidQuery_ShouldReturnOneOrMoreQuestions() {
-    QuestionList questions = stackExchange.fetchQuestions("What is reflection");
-    assertThat(questions.getQuestions()).hasSizeGreaterThan(1);
+    StackExchangeResponse<Question> questions = stackExchange.fetchQuestions("What is reflection");
+    assertThat(questions.getItems()).hasSizeGreaterThan(1);
   }
 
   @Test
@@ -32,8 +32,8 @@ class StackExchangeTest {
 
   @Test
   void fetchAnswers_ValidQuestionId_ShouldReturnOneOrMoreAnswers() {
-    AnswerList answers = stackExchange.fetchAnswers("11227809");
-    assertThat(answers.getAnswers()).hasSizeGreaterThan(1);
+    StackExchangeResponse<Answer> answers = stackExchange.fetchAnswers("11227809");
+    assertThat(answers.getItems()).hasSizeGreaterThan(1);
   }
 
   @Test
