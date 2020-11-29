@@ -21,7 +21,7 @@ public class AnswerControllerTest {
   @Autowired private MockMvc mvc;
 
   @Test
-  public void getAnswers_ValidQuestion_ShouldReturnAnswersJson() throws Exception {
+  public void getAnswers_ValidQuery_ShouldReturnAnswersJson() throws Exception {
     this.mvc
         .perform(get("/answers?query=what+is+reflection"))
         .andExpect(status().isOk())
@@ -29,7 +29,7 @@ public class AnswerControllerTest {
   }
 
   @Test
-  public void getAnswers_IllegalQuestion_ShouldReturnHttpStatusCode400() throws Exception {
+  public void getAnswers_IllegalQuery_ShouldReturnHttpStatusCode400() throws Exception {
     this.mvc.perform(get("/answers?query=")).andExpect(status().isBadRequest());
     this.mvc.perform(get("/answers?query=123")).andExpect(status().isBadRequest());
     this.mvc.perform(get("/answers?query=./*")).andExpect(status().isBadRequest());
