@@ -29,7 +29,10 @@ public class AnswerControllerTest {
   }
 
   @Test
-  public void getAnswers_QuestionNotSpecified_ShouldReturnHttpStatusCode400() throws Exception {
-    this.mvc.perform(get("/answers")).andExpect(status().isBadRequest());
+  public void getAnswers_IllegalQuestion_ShouldReturnHttpStatusCode400() throws Exception {
+    this.mvc.perform(get("/answers?query=")).andExpect(status().isBadRequest());
+    this.mvc.perform(get("/answers?query=123")).andExpect(status().isBadRequest());
+    this.mvc.perform(get("/answers?query=./*")).andExpect(status().isBadRequest());
+    this.mvc.perform(get("/answers?query=q")).andExpect(status().isBadRequest());
   }
 }
